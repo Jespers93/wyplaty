@@ -22,7 +22,7 @@ namespace wyplaty.Controllers
         public async Task<ActionResult<int>> GetFrachtAgain()
         {
 
-            FileStream fs = new FileStream("C:\\Users\\Krzysztof.KWiatkowsk\\source\\repos\\wyplaty\\Files\\2023wrzesien-maciej.xlsx", FileMode.Open,
+            FileStream fs = new FileStream("C:\\Users\\Krzysztof.KWiatkowsk\\source\\repos\\wyplaty\\Files\\2023listopad-maciej.xlsx", FileMode.Open,
     FileAccess.ReadWrite, FileShare.None, 1024);
 
             string test = "";
@@ -116,7 +116,7 @@ namespace wyplaty.Controllers
         {
 
 
-            FileStream fs = new FileStream("C:\\Users\\Krzysztof.KWiatkowsk\\source\\repos\\wyplaty\\Files\\2023wrzesien-martrans.xlsx", FileMode.Open,
+            FileStream fs = new FileStream("C:\\Users\\Krzysztof.KWiatkowsk\\source\\repos\\wyplaty\\Files\\2023listopad-martrans.xlsx", FileMode.Open,
     FileAccess.ReadWrite, FileShare.None, 1024);
 
 
@@ -294,11 +294,11 @@ namespace wyplaty.Controllers
                 {
                     ws = pkg.Workbook.Worksheets.Add(fracht.Driver.LastName, wzorws);
                     ws.Cells[2, 1].Value = "Wynagrodzenie " + month + "."+year;
-                    ws.Cells[4, 2].Value = "01.09 - 03.09";
-                    ws.Cells[16, 2].Value = "04.09 - 10.09";
-                    ws.Cells[28, 2].Value = "11.09 - 17.09";
-                    ws.Cells[40, 2].Value = "18.09 - 24.09";
-                    ws.Cells[52, 2].Value = "25.09 - 30.09";
+                    ws.Cells[4, 2].Value = "01.11 - 05.11";
+                    ws.Cells[16, 2].Value = "06.11 - 12.11";
+                    ws.Cells[28, 2].Value = "13.11 - 19.11";
+                    ws.Cells[40, 2].Value = "20.11 - 26.11";
+                    ws.Cells[52, 2].Value = "27.11 - 30.11";
                 }
 
                 //  DateTime date = new DateTime(2022, 12, 16);
@@ -311,7 +311,7 @@ namespace wyplaty.Controllers
 
                 int weekOfMonth = week1 - week2 + 1;
 
-               
+               if (weekOfMonth >= 6) weekOfMonth = 5;
 
 
                 var indexwc = 4 + ((weekOfMonth - 1) * 12);
